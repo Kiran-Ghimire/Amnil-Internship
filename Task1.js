@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
 
-<body>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" type="text/javascript"></script> -->
-  <script>
-
-    const arr = [
+    const persons = [
       {
         firstName: "Kiran",
         lastName: "Ghimire",
@@ -48,23 +37,21 @@
       const endDate = new Date();
 
       const diffDate = new Date(new Date() - startDate);
-      // console.log(startDate)
-      // console.log(endDate)
-      //console.log(diffDate)
+      
 
       const yearDiff = diffDate.toISOString().slice(0, 4) - 1970;
-      // console.log(yearDiff)
+      
       const monthDiff = diffDate.getMonth();
-      //console.log(monthDiff)
+      
       const mon = Math.floor(monthDiff * 30);
 
 
 
       const dayDiff = diffDate.getDate() - 1;
-      //console.log(dayDiff)
+      
 
       const day = mon + dayDiff
-      //console.log(day)
+     
 
       let label = '';
 
@@ -86,13 +73,10 @@
     }
 
 
-    // calculateAge(arr[0].dob)
+    
 
-    arr.forEach(data => { console.log(data.firstName, data.lastName, calculateAge(data.dob)) })
+    persons.forEach(data => { console.log(data.firstName, data.lastName, calculateAge(data.dob)) })
 
 
 
-  </script>
-</body>
-
-</html>
+ 
