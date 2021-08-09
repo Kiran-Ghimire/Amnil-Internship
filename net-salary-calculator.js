@@ -18,20 +18,20 @@ const taxSlabs = [
 const taxCalculator = (salary) => {
   let tax = 0;
   for (let i = 0; i < taxSlabs.length; i++){
-    if ( salary > 0 && salary < 10000){
+    if ( salary > 0 && salary <= 10000){
       tax = taxSlabs.filter((data, i) => (data.gt == 0 && data.lte <= 10000))[0].tax
       
       break;
-    }else if ( salary >= 10000 && salary < 20000){
+    }else if ( salary > 10000 && salary <= 20000){
       
       tax = taxSlabs.filter((data, i) => (data.gt == 10000 && data.lte <= 20000))[0].tax
       
       break;
-    }else if (salary >= 20000 && salary < 30000){
+    }else if (salary > 20000 && salary <= 30000){
       tax = taxSlabs.filter((data, i) => (data.gt == 20000 && data.lte <= 30000))[0].tax
       
       break;
-    }else if (salary >= 30000 && salary <= 9999999999 ) {
+    }else if (salary > 30000 && salary <= 9999999999 ) {
 
       
       tax = taxSlabs.filter((data, i) => (data.gt == 30000 && data.lte <= 9999999999))[0].tax
