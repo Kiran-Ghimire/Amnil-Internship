@@ -22,8 +22,8 @@ const netSalaryCalculator = (grossSalary) => {
   
   taxSlabs.forEach(slab => {
       const range= slab.lte - slab.gt;
-      console.log("range", range);
-      let taxableAmt= 0;
+      
+      let taxableAmount= 0;
       let taxAmount = 0;
       if (remainderGrossSalary <= range){
           taxableAmt = remainderGrossSalary;
@@ -32,7 +32,7 @@ const netSalaryCalculator = (grossSalary) => {
           taxableAmt = range;
           remainderGrossSalary= remainderGrossSalary - range  
       }
-      taxAmount = taxableAmt * (slab.tax / 100);
+      taxAmount = taxableAmount * (slab.tax / 100);
       totalTaxAmount += taxAmount;
       
       
@@ -42,6 +42,6 @@ const netSalaryCalculator = (grossSalary) => {
 }
 
 
- persons.map (m => {
-   console.log(`${m.name} ${m.grossSalary - netSalaryCalculator(m.grossSalary)}`)
+ persons.map (person => {
+   console.log(`${person.name} ${person.grossSalary - netSalaryCalculator(person.grossSalary)}`)
  })
