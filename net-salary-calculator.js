@@ -26,13 +26,20 @@ const netSalaryCalculator = (grossSalary) => {
       let taxableAmount= 0;
       let taxAmount = 0;
       if (remainderGrossSalary <= range){
-          taxableAmt = remainderGrossSalary;
+          taxableAmount = remainderGrossSalary;
+          
           remainderGrossSalary = 0;
+          
       } else {
-          taxableAmt = range;
-          remainderGrossSalary= remainderGrossSalary - range  
+          taxableAmount = range;
+          
+          remainderGrossSalary= remainderGrossSalary - range
+          
+          
       }
       taxAmount = taxableAmount * (slab.tax / 100);
+      
+      
       totalTaxAmount += taxAmount;
       
       
