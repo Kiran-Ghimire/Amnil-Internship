@@ -25,3 +25,19 @@ Number.prototype.cube = function (x) {
 console.log(` ${myNum.cube(2)} `);
 
 //Ex 2: End
+
+//Ex3: Start
+
+let providedArray = [
+  { id: 1, fullName: "John Doe" },
+  { id: 2, fullName: "Jim Doe" },
+  { id: 3, fullName: "Jane Doe" },
+];
+
+let newObj = {};
+providedArray.reduce(function (acc, curVal) {
+  newObj[`${curVal["id"]}`] = { fullName: curVal["fullName"] };
+}, {});
+console.log(newObj);
+
+//Ex3: End
