@@ -121,3 +121,22 @@ person.age = function (date = this.dob) {
 console.log(person.age());
 
 //Ex6: End
+
+//Ex7: Start
+
+function recursive(num) {
+  if (num > 0) {
+    for (let i = num; i >= 0; i--) {
+      console.log(i);
+    }
+  } else if (num < 0) {
+    for (let i = num; i <= 0; i++) {
+      console.log(i);
+    }
+  } else {
+    console.log("Please input proper value");
+  }
+}
+recursive(5);
+recursive(-5);
+//Ex7: End
