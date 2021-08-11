@@ -74,3 +74,50 @@ const points = {
 console.log(points.displacement);
 
 //Ex5: End
+
+//Ex6: Start
+
+function Person() {}
+
+let person = new Person();
+
+person.firstName = "John ";
+person.lastName = "Doe";
+person.dob = "1996-03-27";
+person.fullName = function () {
+  return person.firstName + person.lastName;
+};
+
+console.log(person.fullName());
+
+person.age = function (date = this.dob) {
+  const startDate = new Date(date + " " + "12:00 AM");
+  const endDate = new Date();
+
+  const diffDate = new Date(new Date() - startDate);
+
+  const yearDiff = diffDate.toISOString().slice(0, 4) - 1970;
+
+  const monthDiff = diffDate.getMonth();
+
+  const mon = Math.floor(monthDiff * 30);
+
+  const dayDiff = diffDate.getDate() - 1;
+
+  const day = mon + dayDiff;
+
+  let label = "";
+
+  if (yearDiff > 0) {
+    label += yearDiff > 1 ? yearDiff + " years, " : yearDiff + " year, ";
+  }
+
+  if (day > 0) {
+    label += day > 1 ? day + " days " : day + " day ";
+  }
+
+  return label;
+};
+console.log(person.age());
+
+//Ex6: End
