@@ -41,3 +41,20 @@ providedArray.reduce(function (acc, curVal) {
 console.log(newObj);
 
 //Ex3: End
+
+//Ex4: Start
+
+let providedObject = {
+  1: { fullName: "John Doe" },
+  2: { fullName: "Jim Doe" },
+  3: { fullName: "Jane Doe" },
+};
+
+let newObj1 = [];
+
+Object.keys(providedObject).reduce((acc, curVal) => {
+  newObj1.push({ id: curVal, fullName: providedObject[curVal]["fullName"] });
+}, []);
+console.log(newObj1);
+
+//Ex4: End
