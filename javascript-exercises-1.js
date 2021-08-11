@@ -58,3 +58,19 @@ Object.keys(providedObject).reduce((acc, curVal) => {
 console.log(newObj1);
 
 //Ex4: End
+
+//Ex5: Start
+
+const points = {
+  p1: [2, 3],
+  p2: [6, 7],
+  get displacement() {
+    return (
+      ((this.p2[0] - this.p1[0]) ** 2 + (this.p2[1] - this.p1[1]) ** 2) ** 0.5
+    );
+  },
+};
+
+console.log(points.displacement);
+
+//Ex5: End
