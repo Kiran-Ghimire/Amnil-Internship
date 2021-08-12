@@ -135,18 +135,8 @@ console.log(person.age());
 function recursion(num) {
   console.log(num);
 
-  if (num == 0) {
-    return num;
-  } else {
-    if (num >= 0) {
-      return recursion(num - 1);
-    } else {
-      return recursion(num + 1);
-    }
-  }
+  if (num != 0) num > 0 ? recursion(num - 1) : recursion(num + 1);
 }
-console.log(recursion(-5));
-
-console.log(recursion(5));
+recursion(5);
 
 //Ex7: End
