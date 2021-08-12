@@ -8,8 +8,16 @@ String.prototype.isPalindrome = function () {
 
 let word1 = "level";
 let word2 = "shovel";
-console.log(word1.isPalindrome());
-console.log(word2.isPalindrome());
+if (word1.length == 0) {
+  console.log("Please input proper value");
+} else {
+  console.log(word1.isPalindrome());
+}
+if (word2.length == 0) {
+  console.log("Please input proper value");
+} else {
+  console.log(word2.isPalindrome());
+}
 
 //Ex1: End
 
@@ -18,9 +26,9 @@ console.log(word2.isPalindrome());
 var myNum = new Number();
 
 Number.prototype.cube = function (x) {
-  let numSqr;
-  numSqr = x ** 3;
-  return numSqr;
+  let numCub;
+  numCub = x ** 3;
+  return numCub;
 };
 console.log(` ${myNum.cube(2)} `);
 
@@ -124,19 +132,21 @@ console.log(person.age());
 
 //Ex7: Start
 
-function recursive(num) {
-  if (num > 0) {
-    for (let i = num; i >= 0; i--) {
-      console.log(i);
-    }
-  } else if (num < 0) {
-    for (let i = num; i <= 0; i++) {
-      console.log(i);
-    }
+function recursion(num) {
+  console.log(num);
+
+  if (num == 0) {
+    return num;
   } else {
-    console.log("Please input proper value");
+    if (num >= 0) {
+      return recursion(num - 1);
+    } else {
+      return recursion(num + 1);
+    }
   }
 }
-recursive(5);
-recursive(-5);
+console.log(recursion(-5));
+
+console.log(recursion(5));
+
 //Ex7: End
