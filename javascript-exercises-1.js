@@ -1,23 +1,20 @@
 //Ex1: Start
 
 String.prototype.isPalindrome = function () {
-  var cleaned = this.toLowerCase().match(/[a-z]/gi).reverse();
-
-  return cleaned.join() === cleaned.reverse().join();
+  if (this.length == 0) {
+    return false;
+  } else {
+    var cleaned = this.toLowerCase().match(/[a-z]/gi).reverse();
+    return cleaned.join() === cleaned.reverse().join();
+  }
 };
 
 let word1 = "level";
 let word2 = "shovel";
-if (word1.length == 0) {
-  console.log("Please input proper value");
-} else {
-  console.log(word1.isPalindrome());
-}
-if (word2.length == 0) {
-  console.log("Please input proper value");
-} else {
-  console.log(word2.isPalindrome());
-}
+
+console.log(word1.isPalindrome());
+
+console.log(word2.isPalindrome());
 
 //Ex1: End
 
@@ -25,12 +22,11 @@ if (word2.length == 0) {
 
 var myNum = new Number();
 
-Number.prototype.cube = function (x) {
-  let numCub;
-  numCub = x ** 3;
-  return numCub;
+Number.prototype.cube = function () {
+  return this ** 3;
 };
-console.log(` ${myNum.cube(2)} `);
+let num = 2;
+console.log(`${num.cube()}`);
 
 //Ex 2: End
 
@@ -85,47 +81,47 @@ console.log(points.displacement);
 
 //Ex6: Start
 
-function Person() {}
+function Person(firstName, lastName, dob) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.dob = dob;
+  this.fullName = function () {
+    return this.firstName + " " + this.lastName;
+  };
 
-let person = new Person();
+  this.age = function (date = this.dob) {
+    const startDate = new Date(date + " " + "12:00 AM");
+    const endDate = new Date();
 
-person.firstName = "John ";
-person.lastName = "Doe";
-person.dob = "1996-03-27";
-person.fullName = function () {
-  return person.firstName + person.lastName;
-};
+    const diffDate = new Date(new Date() - startDate);
+
+    const yearDiff = diffDate.toISOString().slice(0, 4) - 1970;
+
+    const monthDiff = diffDate.getMonth();
+
+    const mon = Math.floor(monthDiff * 30);
+
+    const dayDiff = diffDate.getDate() - 1;
+
+    const day = mon + dayDiff;
+
+    let label = "";
+
+    if (yearDiff > 0) {
+      label += yearDiff > 1 ? yearDiff + " years, " : yearDiff + " year, ";
+    }
+
+    if (day > 0) {
+      label += day > 1 ? day + " days " : day + " day ";
+    }
+
+    return label;
+  };
+}
+
+let person = new Person("John", "Doe", "1996-03-27");
 
 console.log(person.fullName());
-
-person.age = function (date = this.dob) {
-  const startDate = new Date(date + " " + "12:00 AM");
-  const endDate = new Date();
-
-  const diffDate = new Date(new Date() - startDate);
-
-  const yearDiff = diffDate.toISOString().slice(0, 4) - 1970;
-
-  const monthDiff = diffDate.getMonth();
-
-  const mon = Math.floor(monthDiff * 30);
-
-  const dayDiff = diffDate.getDate() - 1;
-
-  const day = mon + dayDiff;
-
-  let label = "";
-
-  if (yearDiff > 0) {
-    label += yearDiff > 1 ? yearDiff + " years, " : yearDiff + " year, ";
-  }
-
-  if (day > 0) {
-    label += day > 1 ? day + " days " : day + " day ";
-  }
-
-  return label;
-};
 console.log(person.age());
 
 //Ex6: End
