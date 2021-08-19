@@ -1,5 +1,3 @@
-let searchTodo = [];
-
 function saveLocalTodos(todo, completedtodo, startingTime, endingTime) {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -33,6 +31,7 @@ function clearLocalTodos() {
 function getTodos() {
   let todos;
   searchTodo = [];
+  const todoList = document.querySelector(".todo-list");
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {
@@ -57,7 +56,7 @@ function getTodos() {
 
     searchTodo.push([todo[0], todo[2], todo[3]]);
 
-    todoInput.value = "";
+    // todoInput.value = "";
     //Create Completed Button
     const completedButton = document.createElement("button");
     completedButton.innerHTML = `<i class="fas fa-check"></i>`;
@@ -72,3 +71,10 @@ function getTodos() {
     todoList.appendChild(todoDiv);
   });
 }
+
+export default {
+  saveLocalTodos,
+  removeLocalTodos,
+  clearLocalTodos,
+  getTodos,
+};

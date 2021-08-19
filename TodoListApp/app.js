@@ -1,3 +1,5 @@
+import localServices from "./localStorage.js";
+
 //Selectors
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
@@ -9,7 +11,7 @@ const endTime = document.getElementById("end-time");
 const sortTime = document.querySelector(".sort-button");
 
 //Event Listeners
-document.addEventListener("DOMContentLoaded", getTodos);
+document.addEventListener("DOMContentLoaded", localServices.getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 clearAll.addEventListener("click", allClear);
@@ -67,7 +69,7 @@ function addTodo(event) {
       endTime.value
     );
 
-    saveLocalTodos(
+    localServices.saveLocalTodos(
       todoInput.value,
       newTodo.parentElement.className,
       startTime.value,
@@ -115,7 +117,7 @@ function allClear(e) {
 
   if (item) {
     while (item.firstChild) {
-      clearLocalTodos();
+      localServices.clearLocalTodos();
       item.removeChild(item.firstChild);
     }
   }
@@ -168,14 +170,14 @@ function searchTodos(e) {
       todoList.appendChild(todoDiv);
     });
   } else {
-    getTodos();
+    localServices.getTodos();
   }
 }
 
 function sortTodos(event) {
   event.preventDefault();
 
-  todos = JSON.parse(localStorage.getItem("todos"));
+  let todos = JSON.parse(localStorage.getItem("todos"));
   console.log(todos);
   todos.sort((a, b) => {
     if (a[2] === b[2]) {
