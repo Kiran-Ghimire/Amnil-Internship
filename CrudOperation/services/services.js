@@ -50,7 +50,7 @@ const remove = async (id, model) => {
       body: model,
     })
       .then((resp) => {
-        resolve(resp.json());
+        resolve(resp.text());
       })
       .catch((error) => {
         reject(error);
