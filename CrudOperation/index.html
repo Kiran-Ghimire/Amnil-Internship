@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        CRUD operation
+    </title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form>
+                    <!-- <div>
+                        <label>Id</label>
+                        <input type="text" name="identity" id="identity">
+                    </div> -->
+                    <div>
+                        <label>Email*</label><label class="validation-error hide" id="emailValidationError">This
+                            field is required.</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="firstName" id="firstName">
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" id="lastName">
+                    </div>
+                    <div>
+                        <label>Aavatar</label>
+                        <input type="text" name="aavatar" id="aavatar">
+                    </div>
+                    <div class="form-action-buttons">
+                        <Button type="submit" value="Submit" id="submit">Submit</Button>
+                    </div>
+                </form>
+            </td>
+            <td>
+                <table class="list" id="employeeList">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Aavatar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </td>
+
+        </tr>
+        <table id="tbl-paginations"></table>
+    </table>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
